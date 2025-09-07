@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background border image -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/border_app"
+        android:scaleType="centerCrop"
+        android:contentDescription="Border Background" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Dashboard Top Bar aligned left -->
+        <TextView
+            android:id="@+id/dashboardTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_green"
+            android:text="Dashboard"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:gravity="center_vertical|start"
+            android:paddingTop="26dp"
+            android:paddingBottom="12dp"
+            android:paddingStart="16dp" />
+
+        <!-- Scrollable content -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:background="@android:color/transparent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="60dp"
+                android:paddingBottom="22dp"
+                android:background="@android:color/transparent">
+
+                <!-- About Me Title -->
+                <TextView
+                    android:id="@+id/aboutMeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About Me"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="30dp"
+                    android:fontFamily="sans-serif-medium" />
+
+                <!-- Profile Image -->
+                <FrameLayout
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_marginBottom="35dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profileImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/default_profile"
+                        android:contentDescription="@string/profile_picture"
+                        android:clickable="true"
+                        android:focusable="true" />
+                    <ImageView
+                        android:id="@+id/editPhotoButton"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_margin="6dp"
+                        android:background="@drawable/circle_background_white"
+                        android:src="@drawable/baseline_camera_alt_24"
+                        android:contentDescription="Edit Profile Photo"
+                        android:elevation="6dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+                </FrameLayout>
+
+                <!-- Name -->
+                <EditText
+                    android:id="@+id/textBox1"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:padding="8dp"
+                    android:text="@string/sanjana_upputuri"
+                    android:textSize="17sp"
+                    android:textStyle="normal"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:layout_marginBottom="20dp"/>
+
+                <!-- Description -->
+                <EditText
+                    android:id="@+id/textBox2"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:background="@android:drawable/editbox_background_normal"
+                    android:padding="8dp"
+                    android:text="@string/iind_year_student_at_bvrith"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/black"
+                    android:gravity="center"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:cursorVisible="false"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:layout_marginBottom="30dp"/>
+
+                <!-- Social Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="24dp"
+                    android:weightSum="3">
+
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="@string/linkedin"
+                        android:backgroundTint="#7A9A70"
+                        android:textColor="@android:color/white"
+                        android:textStyle="normal"
+                        android:textAllCaps="true"
+                        android:textSize="14sp"
+                        android:layout_marginEnd="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp" />
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="@string/github"
+                        android:backgroundTint="#7A9A70"
+                        android:textColor="@android:color/white"
+                        android:textStyle="normal"
+                        android:textAllCaps="true"
+                        android:textSize="14sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp" />
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="@string/leetcode"
+                        android:backgroundTint="#7A9A70"
+                        android:textColor="@android:color/white"
+                        android:textStyle="normal"
+                        android:textAllCaps="true"
+                        android:textSize="14sp"
+                        android:layout_marginStart="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp" />
+                </LinearLayout>
+
+                <!-- Download CV Button -->
+                <Button
+                    android:id="@+id/downloadCVButton"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/download_cv"
+                    android:backgroundTint="#375E2F"
+                    android:textColor="@android:color/white"
+                    android:textStyle="normal"
+                    android:textAllCaps="true"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

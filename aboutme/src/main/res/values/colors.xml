@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green">#4CAF50</color>          <!-- A standard bright green -->
+    <color name="dark_green">#0B3D26</color>     <!-- Your custom dark green -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="light_gray">#DDDDDD</color>
+    <color name="transparent">#00000000</color>
+    <color name="forest_green">#228B22</color> <!-- Forest Green color hex -->
+
+</resources>

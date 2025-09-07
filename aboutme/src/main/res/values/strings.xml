@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">About_Me</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="github">GitHub</string>
+    <string name="leetcode">LeetCode</string>
+    <string name="download_cv">Download CV</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="sanjana_upputuri">SANJANA UPPUTURI</string>
+    <string name="iind_year_student_at_bvrith">IInd year student at BVRITH</string>
+</resources>
