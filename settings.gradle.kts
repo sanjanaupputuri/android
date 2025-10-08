@@ -20,6 +20,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "android"
-include(":app")
+include(":counter")
 include(":aboutme")
 include(":visitingcard")
+include(":dice_roller")
+include(":recycleview")
+include(":birthdayremainder")
