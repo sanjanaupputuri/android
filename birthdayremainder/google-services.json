@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "123456789",
+    "project_id": "birthday-reminder-demo",
+    "storage_bucket": "birthday-reminder-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123456789:android:demo123",
+        "android_client_info": {
+          "package_name": "com.example.birthdayremainder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "demo-client-id.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "demo-api-key"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "demo-client-id.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
