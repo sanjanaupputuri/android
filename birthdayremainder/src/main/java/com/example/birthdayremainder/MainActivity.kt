@@ -449,6 +449,15 @@ fun BirthdayTrackerApp() {
                         Text("Birthday Tracker", fontWeight = FontWeight.Bold, fontSize = 20.sp)
                     }
                 },
+                navigationIcon = {
+                    IconButton(onClick = { showFilterPanel = !showFilterPanel }) {
+                        Icon(
+                            Icons.Default.Menu,
+                            contentDescription = "Filter by month",
+                            tint = if (showFilterPanel) Color(0xFFFF6B9D) else Color.White
+                        )
+                    }
+                },
                 actions = {
                     if (isSignedIn) {
                         IconButton(
@@ -496,13 +505,6 @@ fun BirthdayTrackerApp() {
                         ) {
                             Text("Connect Calendar", fontSize = 12.sp)
                         }
-                    }
-                    IconButton(onClick = { showFilterPanel = !showFilterPanel }) {
-                        Icon(
-                            Icons.Default.Menu,
-                            contentDescription = "Filter by month",
-                            tint = if (showFilterPanel) Color(0xFFFF6B9D) else Color.White
-                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -658,9 +660,11 @@ fun BirthdayTrackerApp() {
 
                 if (showDialog) {
                     AddBirthdayDialog(
+                        selectedMonth = selectedMonth,
                         onDismiss = { showDialog = false },
                         onAdd = { name, month, day ->
                             birthdays = birthdays + Birthday(name = name, month = month, day = day)
+                            selectedMonth = month  // Switch to the month of the newly added birthday
                             showDialog = false
                         }
                     )
@@ -821,11 +825,12 @@ fun BirthdayItem(birthday: Birthday, onDelete: () -> Unit) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddBirthdayDialog(
+    selectedMonth: Month,
     onDismiss: () -> Unit,
     onAdd: (String, Month, Int) -> Unit
 ) {
     var name by remember { mutableStateOf("") }
-    var selectedMonth by remember { mutableStateOf(LocalDate.now().month) }
+    var selectedMonthState by remember { mutableStateOf(selectedMonth) }
     var day by remember { mutableStateOf("") }
     var expandedMonth by remember { mutableStateOf(false) }
     var showError by remember { mutableStateOf(false) }
@@ -838,7 +843,7 @@ fun AddBirthdayDialog(
                     if (name.isNotBlank() && day.isNotBlank()) {
                         val dayInt = day.toIntOrNull()
                         if (dayInt != null && dayInt in 1..31) {
-                            onAdd(name, selectedMonth, dayInt)
+                            onAdd(name, selectedMonthState, dayInt)
                             showError = false
                         } else {
                             showError = true
@@ -892,7 +897,7 @@ fun AddBirthdayDialog(
                     onExpandedChange = { expandedMonth = it }
                 ) {
                     OutlinedTextField(
-                        value = selectedMonth.name.lowercase().replaceFirstChar { it.uppercase() },
+                        value = selectedMonthState.name.lowercase().replaceFirstChar { it.uppercase() },
                         onValueChange = {},
                         readOnly = true,
                         label = { Text("Month") },
@@ -917,7 +922,7 @@ fun AddBirthdayDialog(
                             DropdownMenuItem(
                                 text = { Text(month.name.lowercase().replaceFirstChar { it.uppercase() }, color = Color.White) },
                                 onClick = {
-                                    selectedMonth = month
+                                    selectedMonthState = month
                                     expandedMonth = false
                                 }
                             )
